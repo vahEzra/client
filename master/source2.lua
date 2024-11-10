@@ -1,3 +1,4 @@
+function main(...)
 local key = ...  -- this will receive the string argument passed in
 key = tostring(key)
 print("Updated Client")
@@ -104,3 +105,5 @@ else
   wait(3)
   game.Players.LocalPlayer:Kick("client | please use a correct license key.")
 end
+end
+main()
