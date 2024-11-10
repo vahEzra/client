@@ -1,4 +1,5 @@
 local key = ...  -- this will receive the string argument passed in
+key = tostring(key)
 local whitelistedKeysList = {
 	-- random letters + numbers codes.
 	"4b2f9e7a4d3c8f1a6e7d9b2a4c3f5e9d",
