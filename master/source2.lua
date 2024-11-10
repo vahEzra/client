@@ -1,6 +1,3 @@
-function main(...)
-local key = ...  -- this will receive the string argument passed in
-key = tostring(key)
 print("Updated Client")
 local whitelistedKeysList = {
 	-- random letters + numbers codes.
@@ -86,11 +83,85 @@ local whitelistedKeysList = {
 print("Welcome to the Client Experience!")
 wait(1)
 print("Install Script Version 1.0")
-wait(1)
+
+local Key = Instance.new("ScreenGui")
+local TextBox = Instance.new("TextBox")
+local UICorner = Instance.new("UICorner")
+local shadowHolder = Instance.new("Frame")
+local umbraShadow = Instance.new("ImageLabel")
+local penumbraShadow = Instance.new("ImageLabel")
+local ambientShadow = Instance.new("ImageLabel")
+
+Key.Name = "Key"
+Key.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+Key.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+TextBox.Parent = Key
+TextBox.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+TextBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextBox.BorderSizePixel = 0
+TextBox.Position = UDim2.new(0.146020755, 0, 0.435233146, 0)
+TextBox.Size = UDim2.new(0, 200, 0, 50)
+TextBox.Font = Enum.Font.Gotham
+TextBox.PlaceholderColor3 = Color3.fromRGB(175, 175, 175)
+TextBox.PlaceholderText = "Trial key (you have 10 seconds)"
+TextBox.Text = ""
+TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextBox.TextSize = 12.000
+
+UICorner.CornerRadius = UDim.new(0, 6)
+UICorner.Parent = TextBox
+
+shadowHolder.Name = "shadowHolder"
+shadowHolder.Parent = TextBox
+shadowHolder.BackgroundTransparency = 1.000
+shadowHolder.Size = UDim2.new(1, 0, 1, 0)
+shadowHolder.ZIndex = 0
+
+umbraShadow.Name = "umbraShadow"
+umbraShadow.Parent = shadowHolder
+umbraShadow.AnchorPoint = Vector2.new(0.5, 0.5)
+umbraShadow.BackgroundTransparency = 1.000
+umbraShadow.Position = UDim2.new(0.5, 0, 0.5, 6)
+umbraShadow.Size = UDim2.new(1, 10, 1, 10)
+umbraShadow.ZIndex = 0
+umbraShadow.Image = "rbxassetid://1316045217"
+umbraShadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
+umbraShadow.ImageTransparency = 0.860
+umbraShadow.ScaleType = Enum.ScaleType.Slice
+umbraShadow.SliceCenter = Rect.new(10, 10, 118, 118)
+
+penumbraShadow.Name = "penumbraShadow"
+penumbraShadow.Parent = shadowHolder
+penumbraShadow.AnchorPoint = Vector2.new(0.5, 0.5)
+penumbraShadow.BackgroundTransparency = 1.000
+penumbraShadow.Position = UDim2.new(0.5, 0, 0.5, 6)
+penumbraShadow.Size = UDim2.new(1, 10, 1, 10)
+penumbraShadow.ZIndex = 0
+penumbraShadow.Image = "rbxassetid://1316045217"
+penumbraShadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
+penumbraShadow.ImageTransparency = 0.880
+penumbraShadow.ScaleType = Enum.ScaleType.Slice
+penumbraShadow.SliceCenter = Rect.new(10, 10, 118, 118)
+
+ambientShadow.Name = "ambientShadow"
+ambientShadow.Parent = shadowHolder
+ambientShadow.AnchorPoint = Vector2.new(0.5, 0.5)
+ambientShadow.BackgroundTransparency = 1.000
+ambientShadow.Position = UDim2.new(0.5, 0, 0.5, 6)
+ambientShadow.Size = UDim2.new(1, 10, 1, 10)
+ambientShadow.ZIndex = 0
+ambientShadow.Image = "rbxassetid://1316045217"
+ambientShadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
+ambientShadow.ImageTransparency = 0.880
+ambientShadow.ScaleType = Enum.ScaleType.Slice
+ambientShadow.SliceCenter = Rect.new(10, 10, 118, 118)
+
+wait(10)
 print("Checking License...")
 wait(2)
 print("Done.")
-if table.find(whitelistedKeysList, key)
+if table.find(whitelistedKeysList, TextBox.Text) then
   print("Whitelist Status Verified.")
   wait(3)
   print("Getting Latest Script.")
@@ -99,11 +170,9 @@ if table.find(whitelistedKeysList, key)
   wait(1)
   print("Authorized.")
   wait(5)
-  print("Please wait for this to be updated.")
+  print("ERR0R: UPDATE_HUB")
 else
   print("Whitelist Status Unverified.")
   wait(3)
   game.Players.LocalPlayer:Kick("client | please use a correct license key.")
 end
-end
-main()
